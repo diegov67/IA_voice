@@ -1,7 +1,7 @@
 #from werkzeug.utils import secure_filename
 from enlace import enlace
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 
 #from rvcgui import vc_single, get_output_path
@@ -25,6 +25,18 @@ def modelos():
         return jsonify({"carpetas": carpetas})
     else:
         return "La ruta no existe o no es una carpeta."
+    
+@app.route('/api-voice/descargar/<nombre_archivo>')
+def descargar_archivo(nombre_archivo):
+    # Ruta a la carpeta donde se encuentran los archivos
+    ruta_carpeta = './output/'
+
+    # Verificar si el archivo existe en la ruta especificada
+    ruta_archivo = os.path.join(ruta_carpeta, nombre_archivo)
+    if os.path.exists(ruta_archivo) and os.path.isfile(ruta_archivo):
+        return send_file(ruta_archivo, as_attachment=True)
+    else:
+        return "El archivo no existe en la ruta especificada."
 
 
 @app.route('/api-voice/upload-audio', methods=['POST'])
