@@ -30,9 +30,11 @@ def modelos():
 def descargar_archivo(nombre_archivo):
     # Ruta a la carpeta donde se encuentran los archivos
     ruta_carpeta = '/home/ia_voice/IA-voice/output'
+    print(ruta_carpeta)
 
     # Verificar si el archivo existe en la ruta especificada
     ruta_archivo = os.path.join(ruta_carpeta, nombre_archivo)
+    print(ruta_archivo)
     if os.path.exists(ruta_archivo) and os.path.isfile(ruta_archivo):
         return send_file(ruta_archivo, as_attachment=True)
     else:
