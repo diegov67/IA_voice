@@ -66,3 +66,6 @@ def upload_audio():
         enlace(sid=sid, input_audio=input_audio,f0_pitch=f0_pitch, f0_file=f0_file, f0_method=f0_method, file_index=file_index, file_big_npy=file_big_npy, index_rate=index_rate, modelo= modelo)
         
         return 'Archivo de audio subido exitosamente!', 200
+
+def create_app():
+   return app
