@@ -10,23 +10,23 @@ from torch import Tensor # Fork Feature. Used for pitch prediction for the torch
 bh, ah = signal.butter(N=5, Wn=48, btype="high", fs=16000)
 
 class VC(object):
-    def __init__(self, tgt_sr, config):
-    # def __init__(self, tgt_sr):
-        self.x_pad, self.x_query, self.x_center, self.x_max, self.is_half = (
-            config.x_pad,
-            config.x_query,
-            config.x_center,
-            config.x_max,
-            config.is_half,
-        )
-        self.device = config.device
+    #def __init__(self, tgt_sr, config):
+    def __init__(self, tgt_sr):
+        # self.x_pad, self.x_query, self.x_center, self.x_max, self.is_half = (
+        #     config.x_pad,
+        #     config.x_query,
+        #     config.x_center,
+        #     config.x_max,
+        #     config.is_half,
+        # )
+        # self.device = config.device
         
-        # self.x_pad = 1 
-        # self.x_query = 6 
-        # self.x_center = 38
-        # self.x_max = 41 
-        # self.is_half = False        
-        # self.device = "cpu"
+        self.x_pad = 1 
+        self.x_query = 6 
+        self.x_center = 38
+        self.x_max = 41 
+        self.is_half = False        
+        self.device = "cpu"
         
         self.sr = 16000  # hubert输入采样率
         self.window = 160  # 每帧点数
