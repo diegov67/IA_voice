@@ -63,7 +63,7 @@ def upload_audio():
         filename = file.filename
         # Guardar el archivo en el directorio de uploads
         ruta = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        path = "C:\Proyectos\Software1\ClonarVoz\RVC-GUI-pkg"
+        path = "/home/ia-voice/IA-voice"
         ruta = os.path.join(path, ruta)
         print(ruta)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
