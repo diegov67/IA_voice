@@ -2,9 +2,12 @@
 from enlace import enlace
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 #from rvcgui import vc_single, get_output_path
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api-voice/*": {"origins": "*"}})
 UPLOAD_FOLDER = 'output'  # Directorio donde se guardarán los archivos
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -13,7 +16,7 @@ global modelo
 modelo="Bruno Mars (RVC) 250 Epoch"
 #from rvcgui import vc_single, get_output_path
 
-@app.route('/modelos')
+@app.route('/api-voice/modelos')
 def modelos():
     ruta_modelos = './models'  # Reemplaza con la ruta de tu carpeta 'modelos'
 
@@ -24,7 +27,7 @@ def modelos():
         return "La ruta no existe o no es una carpeta."
 
 
-@app.route('/upload-audio', methods=['POST'])
+@app.route('/api-voice/upload-audio', methods=['POST'])
 def upload_audio():
     if 'audio' not in request.files:
         return 'No se ha enviado ningún archivo de audio', 400
