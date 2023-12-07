@@ -1,4 +1,4 @@
-from werkzeug.utils import secure_filename
+#from werkzeug.utils import secure_filename
 from enlace import enlace
 import os
 from flask import Flask, request, jsonify
@@ -40,8 +40,8 @@ def upload_audio():
 
     if file:
         # Asegurar el nombre del archivo para evitar problemas de seguridad
-        filename = secure_filename(file.filename)
-        
+        #filename = secure_filename(file.filename)
+        filename = file.filename
         # Guardar el archivo en el directorio de uploads
         ruta = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         path = "C:\Proyectos\Software1\ClonarVoz\RVC-GUI-pkg"
