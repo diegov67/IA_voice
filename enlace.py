@@ -162,10 +162,10 @@ def load_hubert():
 def get_output_path(file_path):
     print("ingresa get_output_path")
     print(file_path)
-    if not os.path.exists(file_path):
+    #if not os.path.exists(file_path):
         # change the file extension to .wav
         
-        return file_path  # File path does not exist, return as is
+     #   return file_path  # File path does not exist, return as is
 
     # Split file path into directory, base filename, and extension
     dir_name, file_name = os.path.split(file_path)
