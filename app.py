@@ -29,7 +29,7 @@ def modelos():
 @app.route('/api-voice/descargar/<nombre_archivo>')
 def descargar_archivo(nombre_archivo):
     # Ruta a la carpeta donde se encuentran los archivos
-    ruta_carpeta = '/home/ia_voice/IA-voice/output'
+    ruta_carpeta = './output'
     print(ruta_carpeta)
 
     # Verificar si el archivo existe en la ruta especificada
